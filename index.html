@@ -91,32 +91,13 @@
     grid-template-columns: minmax(0, 1fr);
     gap: 2rem;
   }
-  .ind { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 2.5rem; align-items: start; }
-  #scene { display: block; width: 100%; aspect-ratio: 16 / 10; touch-action: none; }
-  #scene.grab { cursor: grab; }
-  #scene.dragging { cursor: grabbing; }
-  .plot { display: block; width: 100%; aspect-ratio: 4 / 1; }
+  .ind { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.5rem; align-items: center; }
+  #scene { display: block; width: 100%; aspect-ratio: 16 / 11; }
+  .plot { display: block; width: 100%; aspect-ratio: 3 / 1; }
   .plot-title { font-weight: 600; font-size: 1rem; margin-top: 1rem; }
-  .plot-title .ko, .ctl-label .ko, .slider .ko, .check .ko, .readout .ko { font-weight: 400; font-size: 0.85em; margin-left: 0.3em; }
+  .plot-title:first-child { margin-top: 0; }
+  .plot-title .ko, .plot-foot .ko { font-weight: 400; font-size: 0.85em; margin-left: 0.3em; }
   .plot-foot { text-align: right; font-family: var(--sans); font-size: 0.85rem; color: var(--muted); margin-top: 0.2rem; }
-  .ind-right { font-family: var(--sans); font-size: 0.95rem; display: flex; flex-direction: column; gap: 1.1rem; }
-  .ctl-label { margin-bottom: -0.5rem; }
-  .ind-right .seg { display: inline-flex; align-self: flex-start; border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; }
-  .ind-right .seg button { font: inherit; color: var(--ink); background: transparent; border: 0; padding: 0.35rem 0.8rem; cursor: pointer; }
-  .ind-right .seg button + button { border-left: 1px solid var(--rule); }
-  .ind-right .seg button[aria-pressed="true"] { background: var(--neg); color: var(--paper); font-weight: 600; }
-  .ind-right .seg button span { font-size: 0.85em; opacity: 0.85; }
-  .slider { display: flex; flex-direction: column; gap: 0.35rem; }
-  .slider .row { display: flex; justify-content: space-between; gap: 1rem; }
-  .slider output { font-variant-numeric: tabular-nums; font-weight: 600; }
-  .slider input { width: 100%; accent-color: var(--neg); }
-  .slider.disabled { opacity: 0.45; }
-  .check { display: flex; gap: 0.5rem; align-items: baseline; flex-wrap: wrap; }
-  .check input { accent-color: var(--neg); }
-  .readout { margin: 0; border-top: 1px solid var(--rule); padding-top: 0.8rem; }
-  .readout div { display: flex; justify-content: space-between; gap: 1rem; padding: 0.3rem 0; }
-  .readout dt { color: var(--muted); flex: 1; min-width: 0; }
-  .readout dd { margin: 0; font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
   .c-ind { color: var(--ind); }
   .ind-caption { margin: 1.5rem 0 0; font-size: 1rem; line-height: 1.55; max-width: 52rem; }
   .ind-caption .ko { display: block; margin-top: 0.4rem; font-size: 0.92rem; }
@@ -243,48 +224,20 @@
       <h1 lang="ko">경상국립대학교 수학물리학부<br>1학년 물리학2 교과목 보조자료</h1>
       <p>Eight browser simulations that accompany Physics 2, a first-year course, from electric charge and field to Maxwell's equations and light. Every demo comes in both English and Korean.</p>
       <p class="ko" lang="ko" style="margin-top:0.6rem">1학년 과목인 물리학2의 강의와 함께, 전하와 전기장에서 맥스웰 방정식과 빛까지 살펴보는 여덟 가지 브라우저 시뮬레이션입니다. 모든 데모는 영어판과 한국어판이 함께 있습니다.</p>
-      <p class="credit">Created by Claude Opus 5.5, based on the lecture materials by Prof. Sang Hoon Lee.<span lang="ko">이상훈 교수의 강의 자료를 바탕으로 Claude Opus 5.5가 만들었습니다.</span></p>
+      <p class="credit">Created by Claude Opus 5.5, based on the lecture notes by Prof. Sang Hoon Lee.<span lang="ko">이상훈 교수의 강의노트를 바탕으로 Claude Opus 5.5가 만들었습니다.</span></p>
     </div>
     <figure class="field-figure">
       <div class="ind">
-        <div class="ind-left">
-          <canvas id="scene" aria-label="A bar magnet moving toward and away from a wire loop connected to a galvanometer"></canvas>
+        <canvas id="scene" aria-label="A bar magnet moving back and forth near a wire loop connected to a galvanometer"></canvas>
+        <div class="ind-plots">
           <div class="plot-title">Flux per turn <i>Φ</i><sub><i>B</i></sub> (μWb) <span class="ko" lang="ko">한 바퀴당 자기 선속</span></div>
           <canvas id="fluxPlot" class="plot" aria-label="Magnetic flux through the loop over the last 6 seconds"></canvas>
           <div class="plot-title">Induced emf ℰ (mV) <span class="ko" lang="ko">유도 기전력</span></div>
           <canvas id="emfPlot" class="plot" aria-label="Induced emf over the last 6 seconds"></canvas>
-          <div class="plot-foot">last 6 seconds <span class="ko" lang="ko">최근 6초</span></div>
-        </div>
-        <div class="ind-right">
-          <div class="ctl-label">Move the magnet <span class="ko" lang="ko">자석 움직이기</span></div>
-          <div class="seg" role="group" aria-label="How the magnet moves">
-            <button type="button" data-mode="hand" aria-pressed="false">By hand <span lang="ko">손으로</span></button>
-            <button type="button" data-mode="auto" aria-pressed="true">Back and forth <span lang="ko">왕복</span></button>
-          </div>
-          <label class="slider">
-            <span class="row"><span>Magnet position <span class="ko" lang="ko">자석 위치</span></span><output id="posOut"></output></span>
-            <input id="pos" type="range" min="0.5" max="12" step="0.1" value="4">
-          </label>
-          <label class="slider">
-            <span class="row"><span>Speed of the motion <span class="ko" lang="ko">움직이는 빠르기</span></span><output id="speedOut">1.5×</output></span>
-            <input id="speed" type="range" min="0.25" max="3" step="0.25" value="1.5">
-          </label>
-          <label class="slider">
-            <span class="row"><span>Turns <i>N</i> <span class="ko" lang="ko">감은 수</span></span><output id="turnsOut">50</output></span>
-            <input id="turns" type="range" min="1" max="200" step="1" value="50">
-          </label>
-          <label class="check"><input id="flip" type="checkbox"> Turn the magnet around (S pole faces the loop) <span class="ko" lang="ko">자석 뒤집기 (S극이 고리를 향함)</span></label>
-          <dl class="readout">
-            <div><dt>Distance to the loop <span class="ko" lang="ko">고리까지 거리</span></dt><dd id="rDist"></dd></div>
-            <div><dt><i>B</i> at the loop <span class="ko" lang="ko">고리 중심의 자기장</span></dt><dd id="rB"></dd></div>
-            <div><dt>Flux per turn <i>Φ</i><sub><i>B</i></sub> <span class="ko" lang="ko">한 바퀴당 자기 선속</span></dt><dd id="rFlux"></dd></div>
-            <div><dt>Induced emf ℰ <span class="ko" lang="ko">유도 기전력</span></dt><dd id="rEmf"></dd></div>
-            <div><dt>The magnet is <span class="ko" lang="ko">자석은</span></dt><dd id="rMove"></dd></div>
-            <div><dt>The induced current <span class="ko" lang="ko">유도 전류는</span></dt><dd id="rLenz"></dd></div>
-          </dl>
+          <div class="plot-foot">last 6 seconds, 50 turns <span class="ko" lang="ko">최근 6초, 감은 수 50</span></div>
         </div>
       </div>
-      <p class="ind-caption">Faraday's law and Lenz's law at work. As the magnet moves, the flux through the loop changes and an emf ℰ = −<i>N</i> d<i>Φ</i><sub><i>B</i></sub>/d<i>t</i> appears. The induced current (<span class="c-neg">blue arrow</span>) makes its own field <span class="c-ind"><b>B</b><sub>ind</sub></span> that always opposes the change: it pushes an approaching magnet away and pulls a retreating one back. Drag the magnet to move it by hand.<span class="ko" lang="ko">패러데이 법칙과 렌츠 법칙. 자석이 움직이면 고리를 지나는 자기 선속이 변하고 유도 기전력 ℰ = −<i>N</i> d<i>Φ</i><sub><i>B</i></sub>/d<i>t</i>가 생깁니다. 유도 전류(<span class="c-neg">파란 화살표</span>)가 만드는 자기장 <span class="c-ind"><b>B</b><sub>ind</sub></span>은 언제나 변화를 거스릅니다. 다가오는 자석은 밀어내고, 멀어지는 자석은 끌어당깁니다. 자석을 끌어서 직접 움직여 볼 수도 있습니다.</span></p>
+      <p class="ind-caption">Faraday's law and Lenz's law at work. As the magnet moves, the flux through the loop changes and an emf ℰ = −<i>N</i> d<i>Φ</i><sub><i>B</i></sub>/d<i>t</i> appears. The induced current (<span class="c-neg">blue arrow</span>) makes its own field <span class="c-ind"><b>B</b><sub>ind</sub></span> that always opposes the change: it pushes an approaching magnet away and pulls a retreating one back.<span class="ko" lang="ko">패러데이 법칙과 렌츠 법칙. 자석이 움직이면 고리를 지나는 자기 선속이 변하고 유도 기전력 ℰ = −<i>N</i> d<i>Φ</i><sub><i>B</i></sub>/d<i>t</i>가 생깁니다. 유도 전류(<span class="c-neg">파란 화살표</span>)가 만드는 자기장 <span class="c-ind"><b>B</b><sub>ind</sub></span>은 언제나 변화를 거스릅니다. 다가오는 자석은 밀어내고, 멀어지는 자석은 끌어당깁니다.</span></p>
       <figcaption>From demo 7, <a href="https://lshlj82.github.io/EM-induction-AC/induction-en.html">Electromagnetic induction and alternating current</a>. <span lang="ko">데모 7 「<a href="https://lshlj82.github.io/EM-induction-AC/induction-ko.html">전자기 유도와 교류</a>」에서.</span></figcaption>
     </figure>
   </header>
@@ -439,13 +392,13 @@
     <section class="part refs" aria-labelledby="part-refs">
       <h2 id="part-refs">References <span class="ko" lang="ko">참고문헌</span></h2>
       <ul>
-        <li>Prof. Sang Hoon Lee, lecture materials for Physics 2. <span class="ko" lang="ko">이상훈 교수, 물리학2 강의 자료.</span></li>
+        <li>Prof. Sang Hoon Lee, lecture notes for Physics 2. <span class="ko" lang="ko">이상훈 교수, 물리학2 강의노트.</span></li>
       </ul>
     </section>
   </main>
 
   <footer>
-    Created by Claude Opus 5.5, based on the lecture materials by Prof. Sang Hoon Lee. All demos run in the browser with no installation, and the source code for each one is on <a href="https://github.com/lshlj82">GitHub</a>.<br><span lang="ko">이상훈 교수의 강의 자료를 바탕으로 Claude Opus 5.5가 만들었습니다. 모든 데모는 설치 없이 브라우저에서 실행되며, 각 데모의 소스 코드는 GitHub에서 볼 수 있습니다.</span>
+    Created by Claude Opus 5.5, based on the lecture notes by Prof. Sang Hoon Lee. All demos run in the browser with no installation, and the source code for each one is on <a href="https://github.com/lshlj82">GitHub</a>.<br><span lang="ko">이상훈 교수의 강의노트를 바탕으로 Claude Opus 5.5가 만들었습니다. 모든 데모는 설치 없이 브라우저에서 실행되며, 각 데모의 소스 코드는 GitHub에서 볼 수 있습니다.</span>
   </footer>
 </div>
 <script>
@@ -453,7 +406,8 @@
   const $ = id => document.getElementById(id);
   const mu0 = 4e-7 * Math.PI, m0 = 1.2, a = 0.02, HALF = 0.02;   // dipole moment (A·m²), loop radius, half magnet length (m)
   const D_MIN = 0.5, D_MAX = 12, SPAN = 6;                         // cm, cm, seconds of history
-  let mode = 'auto', d = 4, speed = 1.5, N = 50, flip = false, phase = Math.acos((5.25 - 4) / 4.75), tNow = 0;
+  const speed = 1.5, N = 50, flip = false;
+  let d = 4, phase = Math.acos((5.25 - 4) / 4.75), tNow = 0;
   let prevFlux = null, emf = 0, vel = 0, hist = [];
 
   const fluxAt = dFace => {        // flux of a point dipole through a coaxial loop of radius a
@@ -474,6 +428,7 @@
   // ---------- canvases ----------
   const sc = $('scene'), fp = $('fluxPlot'), ep = $('emfPlot');
   const cvs = [sc, fp, ep].map(c => ({ c, ctx: c.getContext('2d'), w: 0, h: 0 }));
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function resize() {
     const dpr = window.devicePixelRatio || 1;
     cvs.forEach(o => { o.w = o.c.clientWidth; o.h = o.c.clientHeight; o.c.width = Math.round(o.w * dpr); o.c.height = Math.round(o.h * dpr); o.ctx.setTransform(dpr, 0, 0, dpr, 0, 0); });
@@ -587,100 +542,41 @@
     ctx.stroke();
   }
 
-  function fmt(v, digits) { return (v < 0 ? '−' : '') + Math.abs(v).toFixed(digits); }
-  function readouts() {
-    const flux = fluxAt(d);
-    $('rDist').textContent = d.toFixed(1) + ' cm';
-    $('rB').textContent = fmt(bAt(d) * 1e3, 2) + ' mT';
-    $('rFlux').textContent = fmt(flux * 1e6, 1) + ' μWb';
-    $('rEmf').textContent = fmt(emf * 1e3, 2) + ' mV';
-    const moving = Math.abs(vel) > 0.3;
-    $('rMove').textContent = !moving ? 'at rest' : vel < 0 ? 'approaching' : 'moving away';
-    $('rLenz').textContent = !moving ? 'is zero' : vel < 0 ? 'pushes the magnet away' : 'pulls the magnet back';
-    $('posOut').textContent = d.toFixed(1) + ' cm';
-  }
 
   function draw() {
     if (!C.ink || !cvs[0].w) return;
     drawScene();
     drawPlot(cvs[1], 'flux', C.neg, FLUX_MAX * 1.1, 1e6);
     drawPlot(cvs[2], 'emf', C.pos, emfScale, 1e3);
-    readouts();
   }
 
   // ---------- time evolution ----------
-  let last = performance.now(), handTarget = d;
+  function step(dt) {
+    tNow += dt;
+    const dOld = d;
+    phase += dt * speed * 2 * Math.PI / 4;
+    d = 5.25 - 4.75 * Math.cos(phase);
+    const flux = fluxAt(d);
+    if (prevFlux !== null) { const e = -N * (flux - prevFlux) / dt; emf += (e - emf) * 0.5; }
+    prevFlux = flux; vel = (d - dOld) / dt;
+    hist.push({ t: tNow, flux, emf });
+    while (hist.length && hist[0].t < tNow - SPAN) hist.shift();
+    const peak = Math.max(...hist.map(p => Math.abs(p.emf)), 1e-6);
+    emfScale += (Math.max(peak * 1.15, 2e-4) - emfScale) * 0.05;
+  }
+  let last = performance.now();
   function frame(now) {
     const dt = Math.min(0.05, (now - last) / 1000); last = now;
-    if (dt > 0) {
-      tNow += dt;
-      const dOld = d;
-      if (mode === 'auto') {
-        phase += dt * speed * 2 * Math.PI / 4;
-        d = 5.25 - 4.75 * Math.cos(phase);
-        $('pos').value = d;
-      } else {
-        d += (handTarget - d) * Math.min(1, dt * 12);   // smooth the hand motion
-      }
-      const v = (d - dOld) / dt; vel += (v - vel) * 0.4;
-      const flux = fluxAt(d);
-      if (prevFlux !== null) { const e = -N * (flux - prevFlux) / dt; emf += (e - emf) * 0.5; }
-      prevFlux = flux;
-      hist.push({ t: tNow, flux, emf });
-      while (hist.length && hist[0].t < tNow - SPAN) hist.shift();
-      const peak = Math.max(...hist.map(p => Math.abs(p.emf)), 1e-6);
-      emfScale += (Math.max(peak * 1.15, 2e-4) - emfScale) * 0.05;
-      draw();
-    }
+    if (dt > 0) { step(dt); draw(); }
     requestAnimationFrame(frame);
   }
 
-  // ---------- controls ----------
-  const segBtns = document.querySelectorAll('.ind-right .seg button'), posLabel = $('pos').closest('.slider');
-  function setMode(m) {
-    mode = m;
-    segBtns.forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === m));
-    $('pos').disabled = m === 'auto'; posLabel.classList.toggle('disabled', m === 'auto');
-    $('speed').disabled = m !== 'auto'; $('speed').closest('.slider').classList.toggle('disabled', m !== 'auto');
-    if (m === 'auto') phase = Math.acos(Math.max(-1, Math.min(1, (5.25 - d) / 4.75)));
-    handTarget = d;
-  }
-  segBtns.forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
-  $('pos').addEventListener('input', e => { handTarget = parseFloat(e.target.value); });
-  $('speed').addEventListener('input', e => { speed = parseFloat(e.target.value); $('speedOut').textContent = speed + '×'; });
-  $('turns').addEventListener('input', e => { N = parseInt(e.target.value, 10); $('turnsOut').textContent = N; });
-  $('flip').addEventListener('change', e => { flip = e.target.checked; prevFlux = null; });
-
-  // drag the magnet on the canvas
-  let dragging = false;
-  function overMagnet(e) {
-    const r = sc.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top, g = geom();
-    return x > g.face - g.len - 6 && x < g.face + 6 && Math.abs(y - g.yC) < g.mh / 2 + 8;
-  }
-  function dragTo(e) {
-    const r = sc.getBoundingClientRect(), g = geom();
-    handTarget = Math.max(D_MIN, Math.min(D_MAX, (g.xL - g.rx * 0.2 - (e.clientX - r.left + dragOff)) / g.s));
-    $('pos').value = handTarget;
-  }
-  let dragOff = 0;
-  sc.addEventListener('pointerdown', e => {
-    if (!overMagnet(e)) return;
-    const r = sc.getBoundingClientRect(); dragOff = geom().face - (e.clientX - r.left);
-    dragging = true; setMode('hand'); sc.classList.add('dragging'); sc.setPointerCapture(e.pointerId);
-  });
-  sc.addEventListener('pointermove', e => {
-    if (dragging) dragTo(e);
-    else sc.classList.toggle('grab', overMagnet(e));
-  });
-  const end = () => { dragging = false; sc.classList.remove('dragging'); };
-  sc.addEventListener('pointerup', end); sc.addEventListener('pointercancel', end);
-
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { readColors(); draw(); });
   readColors();
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) setMode('hand'); else setMode('auto');
+  if (reduce) { for (let k = 0; k < 400; k++) step(1 / 60); emfScale = Math.max(...hist.map(p => Math.abs(p.emf))) * 1.15; }
   new ResizeObserver(resize).observe(document.querySelector('.ind'));
   (document.fonts ? document.fonts.ready : Promise.resolve()).then(draw);
-  requestAnimationFrame(frame);
+  if (!reduce) requestAnimationFrame(frame);
 })();
 </script>
 </body>

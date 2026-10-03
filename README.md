@@ -5,8 +5,8 @@ Landing page for the interactive web demos that accompany *Physics 2* (물리학
 
 **Live page:** https://lshlj82.github.io/physics-2/
 
-Created by Claude Opus 5.5, based on the lecture materials by Prof. Sang Hoon Lee.
-이상훈 교수의 강의 자료를 바탕으로 Claude Opus 5.5가 만들었습니다.
+Created by Claude Opus 5.5, based on the lecture notes by Prof. Sang Hoon Lee.
+이상훈 교수의 강의노트를 바탕으로 Claude Opus 5.5가 만들었습니다.
 
 ## Demos · 데모 목록
 
@@ -23,11 +23,11 @@ Created by Claude Opus 5.5, based on the lecture materials by Prof. Sang Hoon Le
 
 ## About the page · 페이지 소개
 
-The page is a single self-contained `index.html` with no build step. Its header runs a live version of demo 7: a bar magnet moves back and forth near a wire loop connected to a galvanometer, while plots show the flux through the loop and the induced emf ℰ = −*N* d*Φ*<sub>*B*</sub>/d*t* over the last 6 seconds. Arrows show the induced current and its field **B**<sub>ind</sub>, which always oppose the change (Lenz's law). You can switch to moving the magnet by hand (drag it or use the slider), change the speed and the number of turns *N*, and turn the magnet around.
+The page is a single self-contained `index.html` with no build step. Its header runs a live version of demo 7: a bar magnet moves back and forth near a wire loop connected to a galvanometer, while plots show the flux through the loop and the induced emf ℰ = −*N* d*Φ*<sub>*B*</sub>/d*t* over the last 6 seconds. Arrows show the induced current and its field **B**<sub>ind</sub>, which always oppose the change (Lenz's law).
 
-The page supports light and dark mode and adapts to phone screens. For visitors who have reduced motion turned on, the magnet starts at rest in hand mode.
+The page supports light and dark mode and adapts to phone screens. For visitors who have reduced motion turned on, it shows a still frame instead of the animation.
 
-페이지는 빌드 과정 없이 `index.html` 파일 하나로 이루어져 있습니다. 상단에서는 데모 7을 실시간으로 실행합니다. 막대자석이 검류계에 연결된 고리 근처에서 왕복 운동하고, 그래프는 최근 6초 동안의 자기 선속과 유도 기전력을 보여줍니다. 화살표는 유도 전류와 그 전류가 만드는 자기장 **B**<sub>ind</sub>를 나타내며, 이 자기장은 언제나 변화를 거스릅니다(렌츠 법칙). 자석을 직접 끌어 움직이거나, 속력과 감은 수 *N*을 바꾸거나, 자석을 뒤집어 볼 수 있습니다.
+페이지는 빌드 과정 없이 `index.html` 파일 하나로 이루어져 있습니다. 상단에서는 데모 7을 실시간으로 실행합니다. 막대자석이 검류계에 연결된 고리 근처에서 왕복 운동하고, 그래프는 최근 6초 동안의 자기 선속과 유도 기전력을 보여줍니다. 화살표는 유도 전류와 그 전류가 만드는 자기장 **B**<sub>ind</sub>를 나타내며, 이 자기장은 언제나 변화를 거스릅니다(렌츠 법칙).
 
 ## Running locally · 로컬에서 실행
 
@@ -41,4 +41,4 @@ Open `index.html` in any modern browser. Fonts load from Google Fonts when onlin
 
 ## References · 참고문헌
 
-- Prof. Sang Hoon Lee, lecture materials for Physics 2. (이상훈 교수, 물리학2 강의 자료)
+- Prof. Sang Hoon Lee, lecture notes for Physics 2. (이상훈 교수, 물리학2 강의노트)
