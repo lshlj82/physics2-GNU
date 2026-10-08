@@ -3,7 +3,7 @@
 
 Landing page for the interactive web demos that accompany *Physics 2* (물리학2), a first-year course in the School of Mathematics and Physics, Gyeongsang National University. Every demo comes in both English and Korean.
 
-**Live page:** https://lshlj82.github.io/physics-2/
+**Live page:** https://lshlj82.github.io/physics2-GNU/
 
 Created by Claude Opus 5.5, based on the lecture notes by Prof. Sang Hoon Lee.
 이상훈 교수의 강의노트를 바탕으로 Claude Opus 5.5가 만들었습니다.
