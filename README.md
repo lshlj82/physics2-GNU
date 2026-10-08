@@ -25,7 +25,7 @@ Created by Claude Opus 5.5, based on the lecture notes by Prof. Sang Hoon Lee.
 
 The page is a single self-contained `index.html` with no build step. Its header runs a live version of demo 7: a bar magnet moves back and forth near a wire loop connected to a galvanometer, while plots show the flux through the loop and the induced emf ℰ = −*N* d*Φ*<sub>*B*</sub>/d*t* over the last 6 seconds. Arrows show the induced current and its field **B**<sub>ind</sub>, which always oppose the change (Lenz's law).
 
-The page supports light and dark mode and adapts to phone screens. For visitors who have reduced motion turned on, it shows a still frame instead of the animation.
+The page supports light and dark mode (a sun/moon button in the top-right corner switches by hand, and the choice is remembered across pages) and adapts to phone screens. For visitors who have reduced motion turned on, it shows a still frame instead of the animation.
 
 페이지는 빌드 과정 없이 `index.html` 파일 하나로 이루어져 있습니다. 상단에서는 데모 7을 실시간으로 실행합니다. 막대자석이 검류계에 연결된 고리 근처에서 왕복 운동하고, 그래프는 최근 6초 동안의 자기 선속과 유도 기전력을 보여줍니다. 화살표는 유도 전류와 그 전류가 만드는 자기장 **B**<sub>ind</sub>를 나타내며, 이 자기장은 언제나 변화를 거스릅니다(렌츠 법칙).
 
