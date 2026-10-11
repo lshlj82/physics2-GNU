@@ -1,44 +1,120 @@
-# Physics 2: Interactive Demos
-**경상국립대학교 수학물리학부 1학년 물리학2 교과목 보조자료**
+# Same Potential, Different Fields: The Charged Ring and Spherical Shell
 
-Landing page for the interactive web demos that accompany *Physics 2* (물리학2), a first-year course in the School of Mathematics and Physics, Gyeongsang National University. Every demo comes in both English and Korean.
+> Part of **[Physics 2: Interactive Demos](https://lshlj82.github.io/physics2-GNU/)** (경상국립대학교 물리학2 보조자료), as a supplement to demo 2, [Gauss's law and electric potential](https://lshlj82.github.io/Gauss-law-and-potential/gauss-en.html) ([한국어](https://lshlj82.github.io/Gauss-law-and-potential/gauss-ko.html)).
 
-**Live page:** https://lshlj82.github.io/physics2-GNU/
+A short note and an interactive demo on a classic electrostatics puzzle. Compare two cases, both with total charge $q$:
 
-Created by Claude Opus 5.5, based on the lecture notes by Prof. Sang Hoon Lee.
-이상훈 교수의 강의노트를 바탕으로 Claude Opus 5.5가 만들었습니다.
+- a point charge $q$, observed at distance $R$;
+- a uniformly charged ring of radius $R$, observed at its center.
 
-## Demos · 데모 목록
+The electric potential is the same in both cases:
 
-| # | Demo | 데모 | Links |
-|---|------|------|-------|
-| 1 | Electric charge, field and potential, step by step | 전하, 전기장, 전기 퍼텐셜을 차근차근 알아보자 | [English](https://lshlj82.github.io/electrostatics-basic/index.html) · [한국어](https://lshlj82.github.io/electrostatics-basic/index_ko.html) · [source](https://github.com/lshlj82/electrostatics-basic) |
-| 2 | Gauss's law and electric potential | 가우스 법칙과 전기 퍼텐셜 | [English](https://lshlj82.github.io/Gauss-law-and-potential/gauss-en.html) · [한국어](https://lshlj82.github.io/Gauss-law-and-potential/gauss-ko.html) · [source](https://github.com/lshlj82/Gauss-law-and-potential) |
-| 3 | Capacitance | 전기용량 | [English](https://lshlj82.github.io/capacitance/capacitance.html) · [한국어](https://lshlj82.github.io/capacitance/capacitance_ko.html) · [source](https://github.com/lshlj82/capacitance) |
-| 4 | Electric circuits | 전기회로 | [English](https://lshlj82.github.io/electric-circuit/circuits-en.html) · [한국어](https://lshlj82.github.io/electric-circuit/circuits-ko.html) · [source](https://github.com/lshlj82/electric-circuit) |
-| 5 | RC circuit | RC회로 | [English](https://lshlj82.github.io/RC-circuit/rc-en.html) · [한국어](https://lshlj82.github.io/RC-circuit/rc-ko.html) · [source](https://github.com/lshlj82/RC-circuit) |
-| 6 | Moving charges and magnetic fields | 움직이는 전하와 자기장 | [English](https://lshlj82.github.io/magnetism-basics/magnetism-en.html) · [한국어](https://lshlj82.github.io/magnetism-basics/magnetism-ko.html) · [source](https://github.com/lshlj82/magnetism-basics) |
-| 7 | Electromagnetic induction and alternating current | 전자기 유도와 교류 | [English](https://lshlj82.github.io/EM-induction-AC/induction-en.html) · [한국어](https://lshlj82.github.io/EM-induction-AC/induction-ko.html) · [source](https://github.com/lshlj82/EM-induction-AC) |
-| 8 | Maxwell's equations and light | 맥스웰 방정식과 빛 | [English](https://lshlj82.github.io/Maxwell-equations-light/maxwell-en.html) · [한국어](https://lshlj82.github.io/Maxwell-equations-light/maxwell-ko.html) · [source](https://github.com/lshlj82/Maxwell-equations-light) |
+$$V = \frac{q}{4\pi\varepsilon_0 R}$$
 
-## About the page · 페이지 소개
+The electric fields are completely different. Why doesn't the equal value of $V$ tell you anything about $\mathbf{E}$? And what do the potential and field of the ring actually look like away from the center?
 
-The page is a single self-contained `index.html` with no build step. Its header runs a live version of demo 7: a bar magnet moves back and forth near a wire loop connected to a galvanometer, while plots show the flux through the loop and the induced emf ℰ = −*N* d*Φ*<sub>*B*</sub>/d*t* over the last 6 seconds. Arrows show the induced current and its field **B**<sub>ind</sub>, which always oppose the change (Lenz's law).
+**[Open the interactive demo](https://lshlj82.github.io/circular-and-spherical-charge-electric-potential-and-field/index.html)** ([한국어](https://lshlj82.github.io/circular-and-spherical-charge-electric-potential-and-field/index_ko.html)) · **[Read the note (PDF)](https://lshlj82.github.io/circular-and-spherical-charge-electric-potential-and-field/charged_ring.pdf)** · **[Trick quiz and answer (PDF, English & Korean)](https://lshlj82.github.io/circular-and-spherical-charge-electric-potential-and-field/trick_quiz.pdf)**
 
-The page supports light and dark mode (a sun/moon button in the top-right corner switches by hand, and the choice is remembered across pages) and adapts to phone screens. For visitors who have reduced motion turned on, it shows a still frame instead of the animation.
+## Motivation
 
-페이지는 빌드 과정 없이 `index.html` 파일 하나로 이루어져 있습니다. 상단에서는 데모 7을 실시간으로 실행합니다. 막대자석이 검류계에 연결된 고리 근처에서 왕복 운동하고, 그래프는 최근 6초 동안의 자기 선속과 유도 기전력을 보여줍니다. 화살표는 유도 전류와 그 전류가 만드는 자기장 **B**<sub>ind</sub>를 나타내며, 이 자기장은 언제나 변화를 거스릅니다(렌츠 법칙).
+This project was inspired by a sudden realization of the lecturer, **Sang Hoon Lee**, during his general physics lecture. He noticed that the potential at the center of a uniformly charged ring equals the potential at distance $R$ from a point charge. Shortly after the lecture came a second realization: this equality of values alone does not provide enough information to derive the ring's electric field.
 
-## Running locally · 로컬에서 실행
+That second point is worth making explicit for students. The potential is a scalar, and its value at a point depends only on how far away the charges are. The field is a vector and a gradient, so it depends on how the potential varies around the point. It's natural to think that matching potentials should mean matching physics, and the ring is a clean counterexample. Following the thought further leads to three results:
 
-Open `index.html` in any modern browser. Fonts load from Google Fonts when online and fall back to system fonts otherwise.
+- the full potential and field profiles of the ring;
+- the saddle point at its center, and what that means for the stability of a test charge (Earnshaw's theorem);
+- a comparison with the spherical shell, whose interior field vanishes everywhere, not just at the center.
 
-## Deploying · 배포
+The note works through the mathematics, and the demo lets you see and test each result directly.
 
-1. Put `index.html` and this `README.md` at the root of the repository.
-2. In **Settings → Pages**, set the source to the `main` branch, root folder.
-3. The page will be served at `https://lshlj82.github.io/<repository-name>/`.
+## Contents
 
-## References · 참고문헌
+| File | Description |
+|---|---|
+| `index.html` | Self-contained interactive demo. Open it in any modern browser; no build step or server is needed. |
+| `index_ko.html` | Korean version of the demo (한국어판). The two pages link to each other. |
+| `charged_ring.tex` | LaTeX source of the note, with TikZ/pgfplots figures. |
+| `charged_ring.pdf` | Compiled version of the note ([view online](https://lshlj82.github.io/circular-and-spherical-charge-electric-potential-and-field/charged_ring.pdf)). |
+| `trick_quiz.tex` | LaTeX source of the trick quiz and its answer, in English and Korean. |
+| `trick_quiz.pdf` | Compiled version of the trick quiz ([view online](https://lshlj82.github.io/circular-and-spherical-charge-electric-potential-and-field/trick_quiz.pdf)). |
 
-- Prof. Sang Hoon Lee, lecture notes for Physics 2. (이상훈 교수, 물리학2 강의노트)
+## The physics in brief
+
+**Why the potentials match.** Potential is a scalar sum,
+
+$$V = \frac{1}{4\pi\varepsilon_0}\int\frac{dq}{s},$$
+
+where $s$ is the distance from each charge element to the observation point. At the ring's center every element has $s = R$, so only the total charge matters.
+
+**Why that says nothing about the field.** The field is $\mathbf{E} = -\nabla V$, which depends on how $V$ *changes* near a point. A single value can't tell you that. At the center of the ring, $\mathbf{E} = 0$ by symmetry. At distance $R$ from a point charge, $|\mathbf{E}| = q/4\pi\varepsilon_0 R^2$.
+
+**The ring's profiles.**
+- **Along the axis,** the results are elementary: $V(z) \propto 1/\sqrt{R^2+z^2}$, and $E_z$ peaks at $z = R/\sqrt{2}$.
+- **In the plane,** $V$ and $E_\rho$ require complete elliptic integrals $K(k)$ and $E(k)$ with $k^2 = 4R\rho/(R+\rho)^2$.
+
+**A saddle point.** Near the ring's center,
+
+$$V \approx \frac{q}{4\pi\varepsilon_0 R}\left(1 + \frac{x^2 + y^2 - 2z^2}{4R^2}\right).$$
+
+$V$ rises in the plane of the ring and falls along its axis. A test charge at the center is therefore in unstable equilibrium whatever its sign, as Earnshaw's theorem requires. If a constraint removes the unstable direction, the charge oscillates with $\omega_z^2 = 2\omega_\rho^2$, which is a direct consequence of Laplace's equation.
+
+**The spherical shell for comparison.** A shell of the same charge and radius gives the same central potential. For the shell, though, $V$ is constant throughout the interior and $\mathbf{E} = 0$ everywhere inside, not just at the center. Newton's cone argument explains why: patch area grows like $s^2$, which exactly offsets the $1/s^2$ fall-off of the field. A one-dimensional ring can't provide that compensation.
+
+## Bonus: a trick quiz
+
+Sang Hoon Lee posed a follow-up trap for students. Both potentials have the form $q/4\pi\varepsilon_0 r$. Differentiating either with respect to $r$ gives the same form, so shouldn't the electric fields be the same too?
+
+The answer is no, because $r$ means different things in the two formulas:
+
+- **For the point charge,** $r$ locates the observation point, so $-dV/dr$ is the field.
+- **For the ring,** $r$ is the ring's radius, a parameter of the source. Differentiating with respect to it asks what happens if the ring is bigger, not what happens if the observer moves.
+
+The field must be the gradient with respect to the observation point's coordinates, with the charges held fixed. For the ring, $-dV/dr$ still has a physical meaning: multiplied by a test charge at the center, it is the total outward force tending to expand the ring.
+
+The full answer, with a figure, is in [`trick_quiz.pdf`](https://lshlj82.github.io/circular-and-spherical-charge-electric-potential-and-field/trick_quiz.pdf), in both English and Korean.
+
+## Using the demo
+
+- **Charge distribution:** switch between the point charge, the ring and the spherical shell.
+- **Views:**
+  - The **3D view** (default) shows the $xz$ and $xy$ potential slices together, with equipotentials and field arrows. Drag to rotate.
+  - The **side ($xz$) and top ($xy$) slices** show a single plane at full size. The bold contour marks $V = q/4\pi\varepsilon_0 R$; in the ring's side slice it crosses itself at the center, which shows the saddle.
+- **Probe:** place it anywhere in 3D using the sliders or number boxes. You can also drag it in the 3D view: plain dragging moves it horizontally, and Shift-dragging moves it vertically. The readout shows $V$ and $\mathbf{E}$ at the probe.
+- **Test charge:** choose same or opposite sign, and free motion, confinement to the plane, or confinement to the axis. Then either nudge it from the center or release it at the probe point. A live readout tracks its motion, and the status message reports the outcome: escape, collision with the ring, bounded oscillation (with the measured period), or no motion inside the shell.
+- **The long journey to the ring:** how long does an opposite-sign charge released from rest take to reach the ring? Presets cover a stable axial orbit, an unstable one, a chaotic slingshot and the straight-in route. You can set the run time (up to $t = 3000$), the wire thickness and the playback speed. The section plots the path in the plane through the axis, $\rho(t)$ and $z(t)$, and a Floquet stability chart of the axial oscillation. The chart shows that small sideways offsets stay small for release heights between about $1.32R$ and $5R$; click it to release from any height.
+- **Profiles:** the plots below the map show $V$ and $E$ versus distance from the center, along the axis and in the plane.
+
+Units throughout the demo: $R = 1$ and $q/4\pi\varepsilon_0 = 1$, and the test charge has charge-to-mass ratio $\pm 1$.
+
+## Building the documents
+
+**The note** compiles with pdfLaTeX:
+
+```bash
+pdflatex charged_ring.tex
+pdflatex charged_ring.tex   # second pass resolves cross-references
+```
+
+Required packages: `amsmath`, `physics`, `tikz` (with `tikz-3dplot`), `pgfplots` (compat 1.18), `subcaption`, `hyperref`. All are included in a standard TeX Live or MiKTeX installation.
+
+pgfplots cannot evaluate elliptic integrals, so the in-plane ring curves are embedded in the source as precomputed coordinates. They were checked against direct numerical integration.
+
+**The trick quiz** contains Korean text and needs XeLaTeX:
+
+```bash
+xelatex trick_quiz.tex
+```
+
+It uses the Noto Serif CJK KR and Noto Sans CJK KR fonts. If they aren't installed, replace the font names in the preamble with any installed Korean font, such as Nanum Myeongjo.
+
+## Implementation notes
+
+- The demo is a single HTML file with plain JavaScript and Canvas 2D; there are no dependencies. It loads Google Fonts when online and falls back to system fonts otherwise.
+- The ring's potential and field use closed-form elliptic-integral expressions, with $K$ and $E$ computed by the arithmetic–geometric mean. Near the axis, a series expansion is used to avoid cancellation errors.
+- Test-charge motion uses a fourth-order Runge–Kutta integrator.
+- The page follows the system's light or dark color scheme.
+
+## Credits
+
+- Idea, motivation and trick quiz: Sang Hoon Lee.
+- Note, quiz answer, figures and interactive demo: written by Claude Opus 5.5 (Anthropic), in conversation with Sang Hoon Lee.
