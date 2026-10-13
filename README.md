@@ -8,6 +8,8 @@ Landing page for the interactive web demos that accompany *Physics 2* (물리학
 Created by Claude Opus 5.5, based on the lecture notes by Prof. Sang Hoon Lee.
 이상훈 교수의 강의노트를 바탕으로 Claude Opus 5.5가 만들었습니다.
 
+**Previous course · 앞선 과목:** [Physics 1](https://github.com/lshlj82/physics1-GNU) ([live page](https://lshlj82.github.io/physics1-GNU/)), covering motion, Newton's laws, energy and momentum, rotation, oscillations and waves, and thermodynamics. 물리학1에서는 운동, 뉴턴의 운동법칙, 에너지와 운동량, 회전운동, 진동과 파동, 열역학을 다룹니다.
+
 ## Demos · 데모 목록
 
 | # | Demo | 데모 | Links |
@@ -42,4 +44,5 @@ Open `index.html` in any modern browser. Fonts load from Google Fonts when onlin
 
 ## References · 참고문헌
 
+- Previous course: [Physics 1](https://lshlj82.github.io/physics1-GNU/). (앞선 과목: 물리학1)
 - Prof. Sang Hoon Lee, lecture notes for Physics 2. (이상훈 교수, 물리학2 강의노트)

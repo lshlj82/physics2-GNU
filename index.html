@@ -85,6 +85,9 @@
   .hero-text p { margin: 0; max-width: 40rem; color: var(--muted); font-size: 1.2rem; }
   .hero-text .credit { margin-top: 1.25rem; font-family: var(--sans); font-size: 0.95rem; }
   .credit span { display: block; }
+  .hero-text .sequence { margin-top: 0.9rem; font-family: var(--sans); font-size: 0.95rem; color: var(--muted); max-width: 40rem; }
+  .sequence a { font-weight: 600; text-underline-offset: 3px; }
+  .sequence span { display: block; margin-top: 0.15rem; }
   .field-figure { margin: 3rem 0 0; }
   .panels {
     display: grid;
@@ -238,6 +241,7 @@ button.theme-btn svg{width:20px; height:20px; fill:none; stroke:currentColor; st
       <p>Eight browser simulations that accompany Physics 2, a first-year course, from electric charge and field to Maxwell's equations and light, plus a supplementary note on the charged ring and spherical shell. Every demo comes in both English and Korean.</p>
       <p class="ko" lang="ko" style="margin-top:0.6rem">1학년 과목인 물리학2의 강의와 함께, 전하와 전기장에서 맥스웰 방정식과 빛까지 살펴보는 여덟 가지 브라우저 시뮬레이션입니다. 여기에 대전된 고리와 구 껍질을 다룬 보충 자료가 하나 더 있습니다. 모든 데모는 영어판과 한국어판이 함께 있습니다.</p>
       <p class="credit">Created by Claude Opus 5.5, based on the lecture notes by Prof. Sang Hoon Lee.<span lang="ko">이상훈 교수의 강의노트를 바탕으로 Claude Opus 5.5가 만들었습니다.</span></p>
+      <p class="sequence">Follows <a href="https://lshlj82.github.io/physics1-GNU/">Physics 1</a>: motion, Newton's laws, energy and momentum, rotation, oscillations and waves, and thermodynamics.<span lang="ko">앞선 과목 <a href="https://lshlj82.github.io/physics1-GNU/">물리학1</a>: 운동, 뉴턴의 운동법칙, 에너지와 운동량, 회전운동, 진동과 파동, 열역학.</span></p>
     </div>
     <figure class="field-figure">
       <div class="ind">
@@ -424,6 +428,7 @@ button.theme-btn svg{width:20px; height:20px; fill:none; stroke:currentColor; st
     <section class="part refs" aria-labelledby="part-refs">
       <h2 id="part-refs">References <span class="ko" lang="ko">참고문헌</span></h2>
       <ul>
+        <li>The course follows <a href="https://lshlj82.github.io/physics1-GNU/">Physics 1</a>. <span class="ko" lang="ko">앞선 과목: 물리학1.</span></li>
         <li>Prof. Sang Hoon Lee, lecture notes for Physics 2. <span class="ko" lang="ko">이상훈 교수, 물리학2 강의노트.</span></li>
       </ul>
     </section>
